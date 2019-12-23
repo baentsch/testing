@@ -45,7 +45,8 @@ sed -e 's/OpenSSL 1.1.1d  10 Sep 2019/OpenSSL 1.1.1d  10 Sep 2019 with OQS suppo
 if [ "x${OPENSSL}" == "x102" ]; then
     make
 else
-    if [ "x${CIRCLECI}" == "xtrue" ] || [ "x${TRAVIS}" == "xtrue" ]; then
+    if [ "x${CIRCLECI}" == "xtrue" ] || [ "x${TRAVIS}" == "xtrue" || [ "x${OQS_SPEEDBUILD}" == "x" ]; then
+        echo "Reduced speed build. Set OQS_SPEEDBUILD to override if you have a machine with sufficient resources."
         make -j2
     else
         make -j

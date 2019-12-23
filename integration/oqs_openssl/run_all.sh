@@ -16,12 +16,13 @@
 #  - LIBOQS_NIST_BRANCH: which branch to check out, default nist-branch
 ###########
 
-set -exo pipefail
+set -eo pipefail
 
 PRINT_GREEN="tput setaf 2"
 PRINT_RESET="tput sgr 0"
 
-for LIBOQS in "master" "nist" ; do
+for LINKTYPE in "static" "dynamic" ; do
+  for LIBOQS in "master" ; do
     for OPENSSL in "111" "102" ; do
         ${PRINT_GREEN}
         echo "================================================================="
@@ -29,12 +30,15 @@ for LIBOQS in "master" "nist" ; do
         echo "liboqs / OpenSSL integration test"
         echo " - LIBOQS=${LIBOQS}"
         echo " - OPENSSL=${OPENSSL}"
+        echo " - LINKTYPE=${LINKTYPE}"
         echo "================================================================="
         echo "================================================================="
         ${PRINT_RESET}
         export LIBOQS
         export OPENSSL
+        export LINKTYPE
         rm -rf tmp
         ./run.sh
     done
+  done
 done

@@ -29,7 +29,8 @@ else
     ./configure --prefix=${PREFIX} --enable-shared=yes --with-openssl=${OPENSSL_DIR}
 fi
 
-if [ "x${CIRCLECI}" == "xtrue" ] || [ "x${TRAVIS}" == "xtrue" ]; then
+if [ "x${CIRCLECI}" == "xtrue" ] || [ "x${TRAVIS}" == "xtrue" ] || [ "x${OQS_SPEEDBUILD}" == "x" ]; then
+    echo "Reduced speed build. Set OQS_SPEEDBUILD to override if you have a machine with sufficient resources."
     make -j2
 else
     make -j
