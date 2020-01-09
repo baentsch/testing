@@ -48,6 +48,15 @@ jobs:
       LINKTYPE: dynamic
       OPENSSL: 111
       PREFIX: /opt/oqssa
+  ssl-x86_64-osx-liboqs-master-openssl-111:
+     macos:
+        xcode: "10.0.0"
+     steps:
+        - checkout 
+        - run:
+            name: Clone liboqs
+            command: cd integration/oqs_openssl && scripts/clone_liboqs.sh
+
 
 workflows:
   version: 2
@@ -59,11 +68,4 @@ workflows:
               context: openqsafe
       - ssl-x86_64-osx-liboqs-master-openssl-111:
               context: openqsafe
-              macos:
-                         xcode: "10.0.0"
-              steps:
-                   - checkout 
-                   - run:
-                       name: Clone liboqs
-                       command: cd integration/oqs_openssl && scripts/clone_liboqs.sh
 
