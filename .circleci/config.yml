@@ -62,7 +62,7 @@ jobs:
         - checkout 
         - run:
             name: Prep env
-            command: brew update; brew unlink python@2; brew install autoconf automake libtool openssl wget doxygen graphviz; pip3 install pytest
+            command: brew update; brew unlink python@2; brew install autoconf automake libtool openssl wget doxygen graphviz; pip3 install pytest; mkdir /opt/oqssa
         - run:
             name: Recon
             command: ls -l /usr/local; ls -l /usr/local/opt; openssl version; /usr/local/opt/openssl@1.1/bin/openssl version
@@ -75,6 +75,9 @@ jobs:
         - run:
             name: Build liboqs
             command: cd integration/oqs_openssl && scripts/build_liboqs.sh
+        - run:
+            name: Test liboqs
+            command: cd integration/oqs_openssl/tmp/liboqs && make test
         - run:
             name: Build OpenSSL
             command: cd integration/oqs_openssl && scripts/build_openssl.sh
