@@ -53,10 +53,10 @@ jobs:
         xcode: "11.3.0"
      steps:
         - checkout 
-          - run:
+        - run:
             name: Clone liboqs
             command: cd integration/oqs_openssl && scripts/clone_liboqs.sh
-          - run:
+        - run:
             name: Clone OpenSSL
             command: cd integration/oqs_openssl && scripts/clone_openssl.sh
         - run:
