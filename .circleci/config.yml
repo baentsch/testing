@@ -51,6 +51,13 @@ jobs:
   ssl-x86_64-osx-liboqs-master-openssl-111:
      macos:
         xcode: "11.3.0"
+     environment:
+        OPENSSL: 111
+        ARCH: x64_64
+        LIBOQS: master
+        LINKTYPE: dynamic
+        PREFIX: /opt/oqssa
+        OPENSSL_DIR: /usr/local/opt/openssl@1.1
      steps:
         - checkout 
         - run:
