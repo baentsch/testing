@@ -50,7 +50,7 @@ jobs:
       PREFIX: /opt/oqssa
   ssl-x86_64-osx-liboqs-master-openssl-111:
      macos:
-        xcode: "10.0.0"
+        xcode: "11.3.0"
      steps:
         - checkout 
         - run:
