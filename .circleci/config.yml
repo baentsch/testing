@@ -61,7 +61,8 @@ jobs:
             command: cd integration/oqs_openssl && scripts/clone_openssl.sh
         - run:
             name: Prep env
-            command: brew install autoconf automake libtool openssl wget doxygen graphviz
+            #command: brew install autoconf automake libtool openssl wget doxygen graphviz
+            command: brew update; brew install autoconf automake libtool openssl wget doxygen graphviz
         - run:
             name: Build liboqs
             command: source ~/.bashrc && cd integration/oqs_openssl && scripts/build_liboqs.sh
