@@ -59,10 +59,9 @@ workflows:
               context: openqsafe
       - ssl-x86_64-osx-liboqs-master-openssl-111:
               context: openqsafe
-              build: 
-                 - macos:
+              macos:
                          xcode: "10.0.0"
-                 - steps:
+              steps:
                    - checkout 
                    - run:
                        name: Clone liboqs
