@@ -53,16 +53,15 @@ jobs:
         xcode: "11.3.0"
      steps:
         - checkout 
-          #- run:
-          #  name: Clone liboqs
-          #  command: cd integration/oqs_openssl && scripts/clone_liboqs.sh
-          #- run:
-          #  name: Clone OpenSSL
-          #  command: cd integration/oqs_openssl && scripts/clone_openssl.sh
+          - run:
+            name: Clone liboqs
+            command: cd integration/oqs_openssl && scripts/clone_liboqs.sh
+          - run:
+            name: Clone OpenSSL
+            command: cd integration/oqs_openssl && scripts/clone_openssl.sh
         - run:
             name: Prep env
-            #command: brew install autoconf automake libtool openssl wget doxygen graphviz
-            command: brew update; brew unlink python@2; brew install autoconf automake libtool openssl wget doxygen graphviz
+            command: brew update; brew unlink python@2; brew install autoconf automake libtool openssl wget doxygen graphviz; pip3 install pytest
         - run:
             name: Build liboqs
             command: source ~/.bashrc && cd integration/oqs_openssl && scripts/build_liboqs.sh
