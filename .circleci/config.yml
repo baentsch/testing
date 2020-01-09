@@ -72,9 +72,9 @@ jobs:
         - run:
             name: Build liboqs
             command: cd integration/oqs_openssl && scripts/build_liboqs.sh
-        - run:
-            name: Test liboqs
-            command: cd integration/oqs_openssl/tmp/liboqs && make test
+            #- run:
+            #name: Test liboqs
+            #command: cd integration/oqs_openssl/tmp/liboqs && make test
         - run:
             name: Build OpenSSL
             command: cd integration/oqs_openssl && scripts/build_openssl.sh
