@@ -72,9 +72,9 @@ jobs:
         - run:
             name: Build liboqs
             command: cd integration/oqs_openssl && scripts/build_liboqs.sh
-            #- run:
-            #name: Test liboqs
-            #command: cd integration/oqs_openssl/tmp/liboqs && make test
+        - run:
+            name: Test liboqs
+            command: cd integration/oqs_openssl/tmp/liboqs && make test
         - run:
             name: Build OpenSSL
             command: cd integration/oqs_openssl && scripts/build_openssl.sh
@@ -86,10 +86,10 @@ workflows:
   version: 2
   build:
     jobs:
-            #- ssl-x86_64-centos7-liboqs-master-openssl-111:
-            #  context: openqsafe
-            #- ssl-x86_64-alpine-liboqs-master-openssl-111:
-            #  context: openqsafe
+      - ssl-x86_64-centos7-liboqs-master-openssl-111:
+         context: openqsafe
+      - ssl-x86_64-alpine-liboqs-master-openssl-111:
+         context: openqsafe
       - ssl-x86_64-osx-liboqs-master-openssl-111:
-              context: openqsafe
+         context: openqsafe
 
